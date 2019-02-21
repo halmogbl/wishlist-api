@@ -22,7 +22,7 @@ class ItemListSerializer(serializers.ModelSerializer):
         fields = ['id','image', 'added_by', 'name', 'detail', 'item_wish_count']
     
     def get_item_wish_count(self, obj):
-        return "This item has been wished by %s users"%(obj.favoriteitem_set.count())
+        return obj.favoriteitem_set.count()
 
 class ItemDetailSerializer(serializers.ModelSerializer):
     class Meta:
