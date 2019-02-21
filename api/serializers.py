@@ -6,13 +6,13 @@ from django.contrib.auth.models import User
 class AddedBySerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name']
+        fields = ['id','first_name', 'last_name']
 
 
 class ItemListSerializer(serializers.ModelSerializer):
     item_wish_count = serializers.SerializerMethodField()
     detail = serializers.HyperlinkedIdentityField(
-        view_name = 'item-detail',
+        view_name = 'api-detail',
         lookup_field = 'id',
         lookup_url_kwarg = 'item_id'
     )
